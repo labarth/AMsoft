@@ -3,10 +3,10 @@ import { Api } from 'api/Api';
 
 export function* getUsersSaga() {
   try {
-    const user = yield call(Api.fetch, 'https://jsonplaceholder.typicode.com/users/11');
+    const user = yield call(Api.fetch, 'http://jsonplaceholder.typicode.com/users/');
     yield put({ type: 'USER_DATA_LOADED', payload: user })
   } catch(error) {
-    console.log(error, 'error');
+    console.log(error.message, 'error');
   }
 }
 
