@@ -1,16 +1,16 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-class MainPage extends PureComponent {
+class NotFoundPage extends PureComponent {
   static propTypes = {};
 
   static defaultProps = {};
 
   render() {
     return (
-      <div>Main Page</div>
+      <div>NotFoundPage</div>
     );
   }
 }
 
-export { MainPage };
+export { NotFoundPage };

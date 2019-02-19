@@ -1,16 +1,16 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-class MainPage extends PureComponent {
+class CreditCalcPage extends PureComponent {
   static propTypes = {};
 
   static defaultProps = {};
 
   render() {
     return (
-      <div>Main Page</div>
+      <div>CreditCalcPage</div>
     );
   }
 }
 
-export { MainPage };
+export { CreditCalcPage };
