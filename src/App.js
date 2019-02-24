@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { AboutPage } from 'pages/about/AboutPage';
 import { MainPage } from 'pages/main/MainPage';
@@ -9,9 +9,14 @@ import { Toolbar } from 'components/Toolbar/Toolbar';
 import GlobalStyles from 'styled/GlobalStyles';
 
 export const App = () => (
-  <div>
+  <Fragment>
     <GlobalStyles />
-    <Toolbar />
+    <Route
+      path="/"
+      render={({ location: { pathname } }) => (
+        pathname !== '/login' ? <Toolbar /> : null
+      )}
+    />
     <Switch>
       <Route exact path="/" component={MainPage} />
       <Route path="/about" component={AboutPage} />
@@ -19,5 +24,5 @@ export const App = () => (
       <Route path="/credits" component={CreditCalcPage} />
       <Route component={NotFoundPage} />
     </Switch>
-  </div>
+  </Fragment>
 );
