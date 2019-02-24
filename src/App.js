@@ -1,7 +1,7 @@
-import React, { Fragment, PureComponent } from 'react';
+import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { AboutPage } from 'pages/about/AboutPage';
 import { MainPage } from 'pages/main/MainPage';
 import { LoginPage } from 'pages/login/LoginPage';
@@ -16,7 +16,7 @@ const mapStateToProps = (state) => ({
 });
 
 @connect(mapStateToProps)
-class App extends PureComponent {
+class App extends Component {
   static propTypes = {
     user: PropTypes.object.isRequired,
   };
@@ -28,7 +28,7 @@ class App extends PureComponent {
 
     return (
       <Fragment>
-        {user.loading ? <Loader/> : null}
+        {user.loading ? <Loader /> : null}
         <GlobalStyles />
         <Route
           path="/"
@@ -36,7 +36,6 @@ class App extends PureComponent {
             pathname !== '/login' ? <Toolbar /> : null
           )}
         />
-        {!user.loading && !user.data ?  <Redirect to="/login" /> : null }
         <Switch>
           <Route exact path="/" component={MainPage} />
           <Route path="/about" component={AboutPage} />

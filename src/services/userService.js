@@ -17,7 +17,7 @@ const getUser = (username, password) => new Promise((res, rej) => {
     } else {
       rej({ error: 'invalid username or password' });
     }
-  }, 3000);
+  }, 1000);
 });
 
 const onAuthChanged = () => new Promise((res, rej) => {
@@ -30,7 +30,7 @@ const onAuthChanged = () => new Promise((res, rej) => {
       rej({ error: 'not authorize' });
     }
   }, 1000);
-})
+});
 
 export {
   getUser,

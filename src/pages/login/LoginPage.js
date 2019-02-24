@@ -1,11 +1,11 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
-import { login } from './redux/actions';
+import { login } from 'redux/auth/actions';
 
 const mapSateToProps = (state) => ({
   user: state.user,
@@ -13,7 +13,7 @@ const mapSateToProps = (state) => ({
 
 @withRouter
 @connect(mapSateToProps, { login })
-class LoginPage extends PureComponent {
+class LoginPage extends Component {
   static propTypes = {};
 
   static defaultProps = {};

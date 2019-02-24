@@ -1,11 +1,6 @@
 import { createAction } from 'redux-actions';
 import { getUser } from 'services/userService';
-
-const loginActions = {
-  LOGIN_REQUEST: 'USERS_LOGIN_REQUEST',
-  LOGIN_SUCCESS: 'USERS_LOGIN_SUCCESS',
-  LOGIN_FAILURE: 'USERS_LOGIN_FAILURE',
-};
+import { loginActions } from 'redux/actionTypes';
 
 export const SEND_LOGIN_REQUEST = createAction(loginActions.LOGIN_REQUEST);
 export const SEND_LOGIN_SUCCESS = createAction(loginActions.LOGIN_SUCCESS);
