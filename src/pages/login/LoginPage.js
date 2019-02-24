@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
-import { Loader } from 'components/Loader/Loader';
 import { login } from './redux/actions';
 
 const mapSateToProps = (state) => ({
@@ -34,11 +33,11 @@ class LoginPage extends PureComponent {
   }
 
   render() {
-    const { user: { error, loading } } = this.props;
+    const { user: { error } } = this.props;
     const isError = Boolean(error);
+
     return (
       <form style={{ padding: 8, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }} onSubmit={this.handleSubmit}>
-        {loading ? <Loader /> : null}
         <Grid container spacing={16} alignItems="center" justify="center" direction="column">
           <Grid item xs={12}>
             <Grid container>

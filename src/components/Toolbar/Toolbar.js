@@ -12,7 +12,6 @@ class Toolbar extends Component {
       <ul>
         <li><StyledLink exact to="/">Main</StyledLink></li>
         <li><StyledLink to="/about">About</StyledLink></li>
-        <li><StyledLink to="/login">Login</StyledLink></li>
         <li><StyledLink to="/credits">credit calculator</StyledLink></li>
       </ul>
     );

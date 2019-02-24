@@ -16,6 +16,7 @@ export const login = (username, password, history) => async (dispatch) => {
   try {
     const user = await getUser(username, password);
     await dispatch(SEND_LOGIN_SUCCESS(user));
+    await localStorage.setItem('user', JSON.stringify(user));
     await history.push('/');
   } catch (error) {
     await dispatch(SEND_LOGIN_FAILURE(error));

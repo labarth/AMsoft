@@ -1,17 +1,19 @@
-import { put, all, call } from 'redux-saga/effects';
-import { Api } from 'api/Api';
+import { put, all } from 'redux-saga/effects';
+import { onAuthChanged } from 'services/userService';
 
-export function* getUsersSaga() {
+export function* getUserSaga() {
   try {
-    const user = yield call(Api.fetch, 'http://jsonplaceholder.typicode.com/users/');
-    yield put({ type: 'USER_DATA_LOADED', payload: user });
+    yield put({ type: 'USERS_LOGIN_REQUEST'});
+    const user = yield onAuthChanged();
+    yield put({ type: 'USERS_LOGIN_SUCCESS', payload: user });
   } catch (error) {
-    console.log(error.message, 'error');
+    console.log(error);
+    yield put({ type: 'USERS_LOGIN_FAILURE', payload: error });
   }
 }
 
 export function* rootSaga() {
   yield all([
-    getUsersSaga(),
+    getUserSaga(),
   ]);
 }

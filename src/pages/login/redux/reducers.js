@@ -4,12 +4,12 @@ import * as Actions from './actions';
 
 const initialState = Record({
   loading: false,
-  user: null,
+  data: null,
   error: null,
 });
 
 export default handleActions({
   [Actions.SEND_LOGIN_REQUEST]: (state) => state.set('loading', true),
-  [Actions.SEND_LOGIN_SUCCESS]: (state, { payload }) => state.set('loading', false).set('user', payload.user),
-  [Actions.SEND_LOGIN_FAILURE]: (state, { payload }) => state.set('loading', false).set('user', null).set('error', payload.error),
+  [Actions.SEND_LOGIN_SUCCESS]: (state, { payload }) => state.set('loading', false).set('data', payload.user),
+  [Actions.SEND_LOGIN_FAILURE]: (state, { payload }) => state.set('loading', false).set('data', null).set('error', payload.error),
 }, initialState());

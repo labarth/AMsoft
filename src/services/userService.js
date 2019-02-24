@@ -14,13 +14,25 @@ const getUser = (username, password) => new Promise((res, rej) => {
   setTimeout(() => {
     if (username === credentials.username && password === credentials.password) {
       res({ user });
-      history.push('/');
     } else {
       rej({ error: 'invalid username or password' });
     }
   }, 3000);
 });
 
+const onAuthChanged = () => new Promise((res, rej) => {
+  setTimeout(() => {
+    const user = localStorage.getItem('user');
+
+    if (user) {
+      res(JSON.parse(user));
+    } else {
+      rej({ error: 'not authorize' });
+    }
+  }, 1000);
+})
+
 export {
   getUser,
+  onAuthChanged,
 };
