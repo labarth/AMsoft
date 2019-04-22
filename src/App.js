@@ -1,6 +1,5 @@
 import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { AboutPage } from 'pages/about/AboutPage';
 import { MainPage } from 'pages/main/MainPage';
@@ -11,11 +10,6 @@ import { Toolbar } from 'components/Toolbar/Toolbar';
 import { Loader } from 'components/Loader/Loader';
 import GlobalStyles from 'styled/GlobalStyles';
 
-const mapStateToProps = (state) => ({
-  user: state.user,
-});
-
-@connect(mapStateToProps)
 class App extends Component {
   static propTypes = {
     user: PropTypes.object.isRequired,
@@ -25,7 +19,6 @@ class App extends Component {
 
   render() {
     const { user } = this.props;
-
     return (
       <Fragment>
         {user.loading ? <Loader /> : null}

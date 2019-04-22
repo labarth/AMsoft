@@ -1,23 +1,15 @@
-import React, { PureComponent } from 'react';
+import React  from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { login } from '../redux/auth/actions';
+import { withRouter } from 'react-router-dom'
+import { login } from 'redux/auth/actions';
+import { App } from '../App';
 
 const mapStateToProps = (state) => ({
   user: state.user,
 });
 
-@connect(mapStateToProps)
-class AppContainer extends PureComponent {
-  static propTypes = {};
+const mapDispatchToProps = (dispatch) => ({
+  login: (username, password) => dispatch(login(username, password)),
+})
 
-  static defaultProps = {};
-
-  render() {
-    return (
-      <div>AppContainer</div>
-    );
-  }
-}
-
-export { AppContainer };
+export const AppContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

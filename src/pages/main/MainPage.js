@@ -1,7 +1,7 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class MainPage extends PureComponent {
+class MainPage extends Component {
   static propTypes = {};
 
   static defaultProps = {};

@@ -1,4 +1,4 @@
-export const Api = {
+export const api = {
   fetch: (url) => (
     fetch(url).then((response) => {
       if (!response.ok) {
